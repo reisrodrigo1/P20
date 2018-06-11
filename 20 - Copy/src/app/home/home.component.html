@@ -1,0 +1,109 @@
+﻿
+    <div id="jquery-script-menu">
+        <div class="container">
+      
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <table cellspacing="5" class="table table-bordered table-striped" id="myTable"></table>
+                </div>
+                <div class="col-md-12 col-lg-12">
+                    <input type="button" class="btn btn-primary" value="Show Data" id="btnGetData" />
+                </div>
+            </div>
+        </div>
+        <script src="http://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="  crossorigin="anonymous"></script>
+        <script src="jquery.dynamicTable-1.0.0.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#myTable").dynamicTable({
+                    columns: [{
+                            text: "Name",
+                            key: "name"
+                        },
+                        {
+                            text: "Age",
+                            key: "age"
+                        },
+                        {
+                            text: "Email",
+                            key: "email"
+                        },
+                        {
+                            text: "Phone",
+                            key: "phone"
+                        },
+                        {
+                            text: "Birthday",
+                            key: "birthday"
+                        },
+                      
+                    ],
+                    data: [{
+                            name: 'Mr. Jeff Brown',
+                            age: 30,
+                            email:"teste@teste,com",
+                            phone: 32323232,
+                            birthday:28/98/8989,
+                        },
+                        {
+                           name: 'Mr. Jeff Brown',
+                            age: 30,
+                            email:"teste@teste,com",
+                            phone: 32323232,
+                            birthday:28/98/8989,
+                        },
+                    ],
+                    getControl: function (columnKey) {
+                        if (columnKey == "age") {
+                            return '<input type="number" class="form-control" />';
+                        }
+
+                       
+                             if (columnKey == "email") {
+                            return '<input type="email" class="form-control" />';
+                        }
+                             if (columnKey == "phone") {
+                            return '<input type="number" class="form-control" />';
+                        }
+                             if (columnKey == "birthday") {
+                            return '<input type="date" class="form-control" />';
+                        }
+
+                       
+
+                        return '<input type="text" class="form-control" />';
+                    },
+                });
+
+                $('#btnGetData').click(function () {
+                    var data = $("#myTable").getTableData();
+                    console.log(data);
+                });
+            });
+        </script>
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<ul>
+        <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
+    </ul>
+    <p><a [routerLink]="['/login']">Logout</a></p>
+</div>
+
+    
+  
+
+   
+
+
